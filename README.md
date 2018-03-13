@@ -1,2 +1,2 @@
 # psesvjournal
-shared files for managing psesv e-jouanl
+shared files for managing psesv e-journal

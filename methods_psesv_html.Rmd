@@ -1,0 +1,80 @@
+---
+output:
+  html_document:
+    includes:
+      in_header: psesvheader.html
+    toc: yes
+    toc_depth: 2
+    toc_float:
+      collapsed: no
+  pdf_document:
+    toc: yes
+    toc_depth: '2'
+---
+
+```{r load_data, include=FALSE}
+#article = 1
+#methodstext = 'methodstext_psesv1.Rmd'
+#ID = 1
+
+library(dplyr)
+library(ggplot2)
+library(data.table)
+library(knitr)
+library(kableExtra)
+
+psesvroot <- "http://psesv.psmfc.org/"
+art.data <- data.table(read.csv(paste(psesvroot,"metadata.csv",sep="")))
+art.data <- art.data[art_number==article]
+articleurl <- paste(psesvroot, art.data$art_url[1], sep = "")
+methodspdfurl <- paste(psesvroot, "METHODS/PSESV-", article,"/PSESV-",article,".pdf", sep = "") 
+
+```
+
+
+<p class="vizlinks" style="padding-top:30px; padding-bottom:6px;"><a href=`r articleurl`><i class="fa fa-arrow-left fa-lg" aria-hidden="true"></i>&nbsp; Return to article</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a  href=`r psesvroot`><i class="fa fa-arrow-left fa-lg" aria-hidden="true"></i>&nbsp; Return to PSESV</a></p>
+
+<h4 style="border-bottom:2px solid #014977; border-top:2px solid #014977; 
+padding:6px 0px 6px 16px; background-color:#f0f3f5;
+margin:0px 0px 0px 0px;"><span style="font-weight:bold;"> Article Number: </span>`r paste0(art.data$art_number[1], ' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="line"><span style="font-weight:bold">DOI: </span> ',art.data$art_doi[1],'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="line"><span style="font-weight:bold">Published online: </span>',art.data$art_versiondate[1], '</span>')` 
+</h4>
+# `r art.data$art_title[1]`
+
+
+#### <span style="font-weight:bold">`r art.data$author[1]`</span>
+#### `r art.data$address[1]`
+
+<h4 class="vizlinks">
+<i class="fas fa-phone"></i> &nbsp; `r art.data$tel[1]`&nbsp; &nbsp; &nbsp;  <i class="far fa-envelope fa-lg"></i>&nbsp;  `r art.data$email[1]` 
+</h4>
+
+
+<p class="vizlinks" style="padding-top:12px;"><a href=`r methodspdfurl`><i class="far fa-file-pdf fa-lg"></i>&nbsp; Download methods as a PDF</a></p>
+
+
+<hr style="border-top: 2px solid #014977;">
+
+## Visualizations
+
+```{r, echo=FALSE} 
+  vizhtmlcode <- '<p class="vizlinks">'
+  
+  for (i in 1:nrow(art.data[1])){
+
+    vizurl <- paste(psesvroot, art.data$viz_url, sep = "")
+    viztitle <- art.data$viz_title
+    vizlinkhtml <- paste('<a target="_blank" href="',vizurl,'"><i class="fas fa-chart-line fa-lg" aria-hidden="true"></i> &nbsp; ', viztitle,'</a><br>', sep="")
+
+    vizhtmlcode <- paste(vizhtmlcode,vizlinkhtml, collapse="")
+  }
+
+
+  vizhtmlcode<- paste(vizhtmlcode, "</p>", collapse="") 
+  
+  
+```       
+ `r vizhtmlcode`     
+
+```{r, child=methodstext}
+```

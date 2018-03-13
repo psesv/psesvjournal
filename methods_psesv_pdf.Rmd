@@ -1,0 +1,63 @@
+---
+header-includes:
+- \usepackage{fancyhdr}
+- \usepackage{listings}
+- \usepackage{graphbox} 
+- \pagestyle{fancy}
+- \fancyhead[LO,LE]{\includegraphics[align=c,width = .08\textwidth]{logo.png}\hspace{.3cm}{\Large Pacific States E-Journal of Scientific Visualizations \\ }}
+- \hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue}
+ 
+
+output:
+  pdf_document:
+    keep_tex: true
+    latex_engine: xelatex
+mainfont: Calibri Light
+fontsize: 11pt
+geometry: 
+  lmargin=170pt, rmargin=1in, bmargin=1in
+---
+```{r load_data, include=FALSE}
+#article = 1
+#methodstext = 'methodstext_psesv1.Rmd'
+
+library(dplyr)
+library(ggplot2)
+library(data.table)
+library(knitr)
+library(kableExtra)
+
+psesvroot <- "http://psesv.psmfc.org/"
+art.data <- data.table(read.csv(paste(psesvroot,"metadata.csv",sep="")))
+art.data <- art.data[art_number==article]
+data <- art.data
+```
+---
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+&nbsp;
+
+```{r, results='asis',echo=FALSE}
+  cat("Article Number: ",as.character(art.data$art_number[1]),"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOI: ",as.character(art.data$art_doi[1]),"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Published online:",as.character(art.data$art_versiondate[1]))  
+```
+
+
+\hrulefill
+
+```{r,results='asis',echo=FALSE}
+  cat("##", as.character(art.data$art_title[1]), "\n")
+  cat("###",as.character(art.data$authors[1]), " \n")
+  cat(as.character(art.data$address[1])," \n")
+  cat("Tel:",as.character(art.data$tel[1])," E-Mail:",as.character(art.data$email[1]),"\n")
+```
+
+
+\hrulefill
+```{r, child=methodstext}
+```

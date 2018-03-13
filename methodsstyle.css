@@ -1,0 +1,173 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+
+.container {
+	margin:0 auto;
+	width: 775px;
+	padding:0px 10px 0px 10px;
+	background-color:#inherit;
+}
+
+a:link, a:visited {
+	text-decoration:none;
+	color:#4288BA;
+	border-bottom: 1px dotted #4288BA;
+}
+
+a:hover, a:active {
+	text-decoration:none;
+	color:#CC9900;
+	border-bottom:1px solid #CC9900;
+}
+
+
+/********************************************
+PSMFC header 
+*********************************************/
+#psmfc {
+background-color:#022e4b;
+margin:0;
+padding:0;
+	border: 0;
+}
+
+#psmfc p {
+	font: bold 14px Georgia, "Times New Roman", Times, serif;
+	font-style: italic;
+	color: #ffffff;
+	padding:10px 0px 10px 0px;;
+	margin:0;
+}
+
+#psmfc a, 
+#psmfc a:link, 
+#psmfc a:visited, 
+#psmfc a:hover, 
+#psmfc a:active {
+	color:#FFF;
+	text-decoration:none;
+	border:none;
+}
+
+
+/**********************************************
+PSESV header 
+***********************************************/
+
+/*#psesv {
+	background-image: url('../images/psesv_background.png'); 
+	/*opacity:.9;*/ 
+	/*padding-top:15px; 
+	padding-bottom:15px;
+		-webkit-box-shadow: 0px 2px 2px rgba(110, 107, 110, 1);
+	-moz-box-shadow:0px 2px 2px rgba(110, 107, 110, 1);
+	box-shadow: 0px 2px 2px rgba(110, 107, 110, 1);
+	
+}*/
+
+
+/* it's more fun with gradients!*/
+#psesv {
+	background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(2, 46, 75, 0) 0%, rgba(2, 46, 75.65) 100%), url('http://psesv.psmfc.org/images/psesv_background.png');
+	background: -webkit-gradient(linear, left bottom, left top, color-stop(0%, rgba(2, 46, 75, 0)), color-stop(100%, rgba(2, 46, 75, 0)), color-stop(100%, rgba(2, 46, 75, 0.65))), url('http://psesv.psmfc.org/images/psesv_background.png') no-repeat;
+	background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(2, 46, 75, 0) 0%, rgba(2, 46, 75, 0.65) 100%), url('http://psesv.psmfc.org/images/psesv_background.png');
+	background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(2, 46, 75, 0) 0%, rgba(2, 46, 75, 0.65) 100%), url('http://psesv.psmfc.org/images/psesv_background.png');
+	background: -ms-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(2, 46, 75, 0) 0%, rgba(2, 46, 75, 0.65) 100%), url('http://psesv.psmfc.org/images/psesv_background.png');
+	background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(2, 46, 75, 0) 0%, rgba(2, 46, 75, 0.65) 100%), url('http://psesv.psmfc.org/images/psesv_background.png');
+	padding-top:15px;
+	padding-bottom:15px;
+	-webkit-box-shadow: 0px 2px 2px rgba(110, 107, 110, 1);
+	-moz-box-shadow:0px 2px 2px rgba(110, 107, 110, 1);
+	box-shadow: 0px 2px 2px rgba(110, 107, 110, 1);
+}
+#psesv h1 {
+	font-family:  'Lusitana', 'Goudy Old Style', Times, sans serif;
+	font-size:42px;
+	font-weight:500;
+	color: #ffffff;
+	padding:0;
+	margin:0;
+	text-shadow: 0px 2px 2px #022e4b;
+	filter: glow(color=#022e4b, strength=3); /* IE */
+	line-height:110%;
+ text-align;
+left;
+}
+
+#psesv a, 
+#psesv a:link, 
+#psesv a:visited, 
+#psesv a:hover, 
+#psesv a:active {
+	color:#FFF;
+	text-decoration:none;
+	border:none;
+}
+
+
+/**********************************************
+methods - HTML  version
+***********************************************/
+
+
+
+
+/*html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+ {
+	 font-family:font-family:'Open Sans', Arial, Helvetica, sans-serif;
+ }
+ 
+	*/
+
+p, h1,  h2, h3, h4,  h5,  h6,  ol, ul, li, th, td, tr, footer, header, figcaption,
+table, tfoot, thead
+ {
+font-family:'Open Sans', Arial, Helvetica, sans-serif;
+	
+}
+
+  h1,
+  h2,
+  h3,
+  h4
+{
+	color:#014977;
+}
+
+hr{
+border-top: 1px dotted #8c8b8b;
+	
+}
+
+.vizlinks a:link, a:visited, a:hover, a:active {
+	text-decoration:none;
+	border:none;
+}
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    background-color: #014977;
+    border-color:#014977;
+    }
+    
+.tocify {
+border-radius:0px;
+}
+
+span.line {
+  display: inline-block;
+}
